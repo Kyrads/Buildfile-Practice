@@ -1,0 +1,130 @@
+EventPointerTable(0x7, PointerList)
+
+setText(0x160, NewChName)
+
+ALIGN 4
+NewChName:
+String("Test Build")
+BYTE 0
+
+ALIGN 4
+PointerList:
+POIN TurnBasedEvents
+POIN CharacterBasedEvents
+POIN LocationBasedEvents
+POIN MiscBasedEvents
+POIN Dunno1 Dunno2 Dunno3 Tutorial
+POIN Traps1 Traps2
+POIN Units1 Units1  //This unit group determines the number and position of deployment slots when there is a prep screen
+POIN $0 $0 $0
+POIN $0 $0 $0
+POIN BeginningScene EndingScene
+
+TurnBasedEvents:
+END_MAIN
+
+CharacterBasedEvents:
+END_MAIN
+
+LocationBasedEvents:
+Seize(12,1)
+END_MAIN
+
+MiscBasedEvents:
+CauseGameOverIfLordDies
+
+Dunno1:
+END_MAIN
+
+Dunno2:
+END_MAIN
+
+Dunno3:
+END_MAIN
+
+Tutorial:
+END_MAIN
+
+Traps1:
+	ENDTRAP
+	ALIGN 4
+
+Traps2:
+	ENDTRAP
+	ALIGN 4
+
+Units1:
+UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [12,12] 0 0 0 0 [IronSword, Vulnerary] NoAI
+UNIT Seth Paladin 0x0 Level(1,Ally,0) [11,12] 0 0 0 0 [IronLance] NoAI
+UNIT
+
+PlayerUnits:
+UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [8,15] 0 0 1 REDA12R12 [IronSword, Vulnerary] NoAI
+UNIT Seth Paladin 0x0 Level(1,Ally,0) [8,12] 0 0 1 REDA11R12 [IronLance] NoAI
+UNIT
+
+EnemyUnits:
+UNIT 0x95 Fighter 0x0 Level(1,Enemy,1) [12,2] 0 0 1 REDA12R8 [IronAxe] NeverMoveAI
+UNIT 0x95 Mercenary 0x0 Level(1,Enemy,1) [12,2] 0 0 1 REDA10R8 [IronSword] NeverMoveAI
+UNIT 0x95 Soldier 0x0 Level(1,Enemy,1) [12,2] 0 0 1 REDA14R8 [IronLance] NeverMoveAI
+UNIT
+
+//Note to self: Finish text also update your text with cmd!!! Then attempt to get your custom defs working
+BeginningScene:
+MUSC Advance
+SetBackground(0x3)
+//TEXTSTART
+//TEXTSHOW PrologueOP1
+//TEXTEND
+//REMA
+Text(PrologueOP1)
+CALL $9EE2C4
+
+EVBIT_T 9
+LOAD1 0x1 PlayerUnits
+ENUN
+EVBIT_F 9
+CAMERA_CENTERED [12,12]
+CURSOR_FLASHING Eirika
+STAL 20
+REMOVE_CURSORS
+TEXTSTART
+TEXTSHOW PrologueOP2a
+TEXTEND
+MUSC Tension
+TEXTCONT
+TEXTEND
+REMA
+
+EVBIT_T 9
+LOAD1 0x1 EnemyUnits
+ENUN
+EVBIT_F 9
+CAMERA_CENTERED [12,12]
+//TEXTSTART
+//TEXTSHOW PrologueOP2b
+//TEXTEND
+//REMA
+Text(PrologueOP2b)
+
+FADI 5
+CLEA 1
+ENUN
+GotoPrepScreen2
+FADU 10
+
+CAMERA_CENTERED [12,1]
+CURSOR_FLASHING [12,1]
+STAL 20
+REMOVE_CURSORS
+
+TUTORIALTEXTBOXSTART
+TEXTSHOW TutorialText1
+TEXTEND
+REMA
+ENDA
+
+EndingScene:
+MNC2 1
+NoFade
+ENDA

@@ -1,0 +1,22 @@
+## PrologueOP1
+[OpenMidLeft][LoadFace][0x02][0x01][OpenMidRight][LoadFace][0x04][0x01]
+[OpenMidRight]We're Here![.][A][NL]
+[OpenMidLeft]Pog.[.][A][X]
+
+## PrologueOP2a
+[OpenMidLeft][LoadFace][0x04][0x01][OpenMidRight][LoadFace][0x02][0x01]
+[OpenMidRight]Aite lesgo lol.[.][A][NL]
+[OpenMidRight]Wait, music change[.][A][NL]
+[LoadOverworldFaces]
+[OpenMidRight]Fug :DD[.][A][X]
+
+## PrologueOP2b
+[OpenMidRight][LoadFace][0x6D][0x01]
+[OpenMidRight]Lol get fug.[.][A][X]
+
+## PrologueOP2c
+[OpenLeft][LoadFace][0x02][0x01][OpenFarLeft][LoadFace][0x04][0x01][OpenMidRight][LoadFace][0x6D][0x01]
+[OpenMidRight]Lol get fug.[.][A][X]
+
+## TutorialText1
+Siez lol[.][A][X]

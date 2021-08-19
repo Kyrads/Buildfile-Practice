@@ -1,0 +1,9 @@
+//Go to preparations screen without ENDA
+#define GotoPrepScreen2 "CALL $591FD8"
+
+//redefining camera to something easier to write, broken idk
+//#define CAMERA_CENTERED "CAMERA2"
+
+//One line function to highlight objects on map, also broken
+//#define CursorHighlightA [X,Y] "CURSOR_FLASHING [X,Y]; STAL 20; REMOVE_CURSORS"
+//#define CursorHighlightB (charID) "CURSOR_FLASHING (charID); STAL 20; REMOVE_CURSORS"
